@@ -41,8 +41,8 @@ low 7
 PULSOUT 7, 1   'pino B7 Ultra Sons e escreve na w1
 PULSIN 4, 1, w1
 if w1<22 then frente_baliza
-if w1>21 and w1<25 then frente_bola_inicio_1a      'antes w1>21 and w1<29        'alteração
-if w1>24 then frente_bola_inicio
+if w1>21 and w1<29 then frente_bola_inicio_1a              'alteração
+if w1>28 then frente_bola_inicio
 goto inicio
 
 
@@ -74,9 +74,9 @@ goto inicio
 '#######################################################
 
 frente:
-if w1>28 and w1<220 then posicionase '220  '200  120    '????????????????????????????????????????????????????
+if w1>28 and w1<220 then posicionase   '200  120    '????????????????????????????????????????????????????
 'if w1>199 then frente_bola1111             '119
-if w1>219 and w1< 250 then frente_bola_xx_lento'219 'if w1>219 and w1< 260 then frente_bola_xx_lento 
+if w1>219 and w1< 250 then frente_bola_xx_lento 'if w1>219 and w1< 260 then frente_bola_xx_lento 
 if w1>249 then frente_bola1111'if w1>259 then frente_bola1111 
 goto inicio
 
@@ -544,7 +544,7 @@ pwmout portc 2, 10, 15
 goto inicio
 
 '#######################################################################
-'***Modificado***'
+
 frente_bola_baliza:
 low 6
 PULSOUT 6, 5   
@@ -553,56 +553,10 @@ pause 5
 low 5
 PULSOUT 5, 5   
 PULSIN 0, 1, w6
-if w4<551 and w6>550 then obl_dir_suave'direita_obliq'antigamente 250
-if w4>550 and w6<551 then obl_esq_suave'esquerda_obliq
-if w4>550 and w6>550 then frente_bola_baliza_frente
-if w4<551 and w6<551 then frente_bola_baliza_frente'
-goto inicio
-
-'obl_dir_suave:
-'i2cslave $C0,i2cfast,i2cbyte	'Define i2c slave address for the CMPS03
-'readi2c 0,(b6)	                	'ler CMPS03 Software Revision
-'readi2c 1,(b5)
-'if b5<20            then obl_dir_suave_1
-'if b5>127           then obl_dir_suave_1
-'if b5>19 and b5<128 then obl_esq_suave_1 
-'goto inicio
-
-'obl_esq_suave:
-'i2cslave $C0,i2cfast,i2cbyte	' Define i2c slave address for the CMPS03
-'readi2c 0,(b6)	                	' ler CMPS03 Software Revision
-'readi2c 1,(b5)
-'if b5>225            then obl_esq_suave_1
-'if b5<128            then obl_esq_suave_1 
-'if b5>127 and b5<226 then obl_dir_suave_1
-'goto inicio
-
-obl_dir_suave:'obl_dir_suave_1:
-low portc 0
-high portc 5
-low portc 6
-high portc 7
-low 0
-high 1
-low 2
-high 3
-high 4
-pwmout 1,10,30'35
-pwmout 2,10,35'40
-goto inicio
-
-obl_esq_suave:'obl_esq_suave_1:
-low portc 0
-high portc 5
-low portc 6
-high portc 7
-low 0
-high 1
-low 2
-high 3
-high 4
-pwmout 1,10,35'40
-pwmout 2,10,30'35
+if w4<501 and w6>500 then direita_obliq           'antigamente 250
+if w4>500 and w6<501 then esquerda_obliq
+if w4>500 and w6>500 then frente_bola_baliza_frente
+if w4<501 and w6<501 then frente_bola_baliza_frente'
 goto inicio
 
 

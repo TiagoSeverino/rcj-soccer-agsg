@@ -1,3 +1,4 @@
+#picaxe 40x1
 'ALTERAR VELOCIDADE na bola 527
 iniciar:
 if porta input2=0 then inicio

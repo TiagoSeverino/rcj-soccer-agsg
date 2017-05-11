@@ -1,17 +1,31 @@
+#picaxe 18x
 'SRF02 para picaxe 18x1
 setfreq m8
+readadc 1, w0
+readadc 2, w1
+readadc 0, w2
+let w3=w0+25
+let w4=w1+25
+let w5=w2+25
 
-let w3= 20 + 25  'leitura da b1+10
-let w4= 20 + 25  'leitura da b2+10
+'let w3= 20 + 25  'leitura da b1+10
+'let w4= 20 + 25  'leitura da b2+10
 
 inicio:
-readadc 1, w1
+readadc 1, w0
+readadc 2, w1
 readadc 0, w2
-if w1>w3 and w2>w4 then led_verde_temp
-if w1>w3 and w2<w4 then led_verde_temp
-if w1<w3 and w2>w4 then led_verde_temp
-if w1<w3 and w2<w4 then apagado
+debug
+if w0>w3 and w1>w4 and w2>w5 then led_verde_temp
+if w0>w3 and w1<w4 and w2<w5 then led_verde_temp
+if w0<w3 and w1>w4 and w2<w5 then led_verde_temp
+if w0<w3 and w1<w4 and w2>w5 then led_verde_temp
+if w0>w3 and w1>w4 and w2<w5 then led_verde_temp
+if w0<w3 and w1>w4 and w2>w5 then led_verde_temp
+if w0>w3 and w1<w4 and w2>w5 then led_verde_temp
+if w0<w3 and w1<w4 and w2<w5 then apagado
 goto inicio
+
 
 'inicio:
 'i2cslave $E0,i2cfast,i2cbyte	' Join i2c with SRF02
