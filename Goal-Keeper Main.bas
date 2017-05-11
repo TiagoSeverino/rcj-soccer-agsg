@@ -1,3 +1,5 @@
+'##########################################GuardaRedes N3 2016#########################################
+#picaxe 40x1
 symbol flag=b25
 
 iniciar:
@@ -24,7 +26,7 @@ desliga_led_verde:
 low 4
 goto iniciar
 
-'»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+'?????????????????????????????????????????????????????????????
  
 inicio:
 if pin7=0 and pin6=0 and pin5=0 and pin3=0 and pin2=0 then pos_centro_1
@@ -291,7 +293,7 @@ if w6>399 then recua_rapido_h
 goto inicio
 
 
-frente_bola_rap_1: 'Limite até onde atáca a bola
+frente_bola_rap_1: 'Limite at? onde at?ca a bola
 low 7
 PULSOUT 7, 5   
 PULSIN 4, 1, w6    'Ultra Sons e escreve na w6 a distancia da baliza
@@ -505,7 +507,7 @@ goto inicio
 
 
 lado_esq_flag:
-low 4 '«««««««««««««««««
+low 4 '?????????????????
 high portc 0
 low portc 5
 low portc 6
@@ -514,7 +516,7 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,20
+pwmout portc 1, 11,19
 pwmout portc 2, 10,20
 flag=1
 goto inicio
@@ -528,7 +530,7 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,20
+pwmout portc 1, 11,19
 pwmout portc 2, 10,20
 goto inicio
 
@@ -546,7 +548,7 @@ if b2<26 then lado_direito_k
 goto inicio
 
 lado_dir_flag:
-high 4 '«««««««««««««««««
+high 4 '?????????????????
 low portc 0
 high portc 5
 high portc 6
@@ -556,7 +558,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,20
-pwmout portc 2, 10,20
+pwmout portc 2, 11,19
 flag=2
 goto inicio
 
@@ -570,7 +572,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,20
-pwmout portc 2, 10,20
+pwmout portc 2, 11,19
 goto inicio
 
 
@@ -583,8 +585,8 @@ goto inicio
 lado_esquerdo_rap_h:
 let b2=0
 let b3=b3+1
-if b3>16 then lado_esq_rat_flag 
-if b3<17 then lado_esq_rap_conta 
+if b3>18 then lado_esq_rat_flag '16
+if b3<19 then lado_esq_rap_conta '17
 goto inicio
 
 lado_esq_rap_conta:
@@ -596,12 +598,12 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,35'50'30'50  'rodas trazeiras        velocidade  max35
-pwmout portc 2, 10,35'50'30'50  'rodas da frente
+pwmout portc 1, 11,28'35'50'30'50  'rodas trazeiras        velocidade  max35
+pwmout portc 2, 10,30'35'50'30'50  'rodas da frente
 goto inicio
 
 lado_esq_rat_flag:
-low 4 '«««««««««««««««««
+low 4 '?????????????????
 high portc 0
 low portc 5
 low portc 6
@@ -610,8 +612,8 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,35'50'30'50  'rodas trazeiras        velocidade  max35
-pwmout portc 2, 10,35'50'30'50  'rodas da frente
+pwmout portc 1, 11,28'35'50'30'50  'rodas trazeiras        velocidade  max35
+pwmout portc 2, 10,30'35'50'30'50  'rodas da frente
 flag=1
 goto inicio
 
@@ -624,7 +626,7 @@ goto inicio
 lado_esquerdo_rap_le_h:
 let b2=0
 let b3=b3+1
-if b3>16 then lado_esq_rap_le_flag 
+if b3>16 then lado_esq_rap_le_flag
 if b3<17 then lado_esq_rap_le_conta 
 goto inicio
 
@@ -637,13 +639,13 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,26  'rodas trazeiras        velocidade  max35
+pwmout portc 1, 10,25  'rodas trazeiras        velocidade  max35
 pwmout portc 2, 10,26  'rodas da frente
 goto inicio
 
 
 lado_esq_rap_le_flag:
-low 4 '«««««««««««««««««
+low 4 '?????????????????
 high portc 0
 low portc 5
 low portc 6
@@ -652,7 +654,7 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,26  'rodas trazeiras        velocidade  max35
+pwmout portc 1, 10,25  'rodas trazeiras        velocidade  max35
 pwmout portc 2, 10,26  'rodas da frente
 flag=1
 goto inicio
@@ -681,12 +683,12 @@ high 0
 low 1
 low 2
 high 3
-pwmout portc 1, 10,30'30'30'30 
-pwmout portc 2, 10,35'50'30'50
+pwmout portc 1, 10,30'30'30'30'30 
+pwmout portc 2, 10,28'35'50'30'50
 goto inicio
 
 lado_dir_rap_flag:
-high 4 '«««««««««««««««««
+high 4 '?????????????????
 low portc 0
 high portc 5
 high portc 6
@@ -695,8 +697,8 @@ high 0
 low 1
 low 2
 high 3
-pwmout portc 1, 10,30'30'30'30 
-pwmout portc 2, 10,35'50'30'50
+pwmout portc 1, 10,30'30'30'30'30 
+pwmout portc 2, 10,28'35'50'30'50
 flag=2
 goto inicio
 
@@ -723,11 +725,11 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,26                 
-pwmout portc 2, 10,26
+pwmout portc 2, 10,25
 goto inicio
 
 lado_dir_rap_le_flag:
-high 4 '«««««««««««««««««
+high 4 '?????????????????
 low portc 0
 high portc 5
 high portc 6
@@ -737,13 +739,13 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,26                 
-pwmout portc 2, 10,26
+pwmout portc 2, 10,25
 flag=2
 goto inicio
-'»»»»»»»»
+'????????
 
 
-'»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+'???????????????????????????????????????????
 recua_oblq_direita:
 readadc 1, b20
 if b20>149 then linha_x1
@@ -771,7 +773,7 @@ pwmout portc 2, 10, 40'
 goto inicio
 
 recua_oblq_dir_flag:
-high 4 '«««««««««««««««««
+high 4 '?????????????????
 low portc 0
 low portc 5
 high portc 6
@@ -827,7 +829,7 @@ pwmout portc 2, 10, 40
 goto inicio
 
 recua_oblq_esq_flag:
-low 4 '«««««««««««««««««
+low 4 '?????????????????
 high portc 0
 low portc 5
 low portc 6
@@ -870,7 +872,7 @@ goto inicio
 
 
 frente_oblq_esq_flag:
-low 4 '«««««««««««««««««
+low 4 '?????????????????
 low portc 0
 low portc 5
 low portc 6
@@ -912,7 +914,7 @@ if b2<17 then dir_frent_oblq_k
 goto inicio
 
 frente_oblq_dir_flag:
-high 4 '«««««««««««««««««
+high 4 '?????????????????
 low portc 0
 high portc 5
 low portc 6
@@ -939,7 +941,7 @@ pwmout portc 1, 10, 30
 pwmout portc 2, 10, 30
 goto inicio
 
-'«««««««««««««««««««««««««««««««««««««««««««««««
+'???????????????????????????????????????????????
 
 rodar_esquerda:
 readadc 1, b20
@@ -1104,15 +1106,42 @@ goto inicio
 
 
 linha_x1:
+low 5
+PULSOUT 5, 1   'Ultra Sons e escreve na w8-lado direito
+PULSIN 0, 1, w8
+low 6
+PULSOUT 6, 1   'Ultra Sons e escreve na w7-lado esquerdo
+PULSIN 1, 1, w7 
+let w10 = w8+w7
+if w10>800 then linha_certo
+goto linha_x11
+
+linha_x11:
 if flag=1 then lado_direito_rap_xx
 if flag=2 then lado_esquerdo_rap_xx
 goto inicio 
 
+linha_certo:
+if w7>w8 then linha_x1_dir
+goto linha_x1_esq
 
+linha_x1_dir:
+let b2=30
+let b3=0
+flag=2
+high 4
+goto linha_x11
+
+linha_x1_esq:
+let b2=0
+let b3=30
+flag=1
+low 4
+goto linha_x11
 
 lado_direito_rap_xx:
 low 7
-PULSOUT 7, 3   'Ultra Sons e escreve na w6 a distancia de trás
+PULSOUT 7, 3   'Ultra Sons e escreve na w6 a distancia de tr?s
 PULSIN 4, 1, w6
 if w6<221  then dir_frent_oblq_xxx2'frente_bola_afasta_x
 if w6>220  then lado_direito_rap_xx3'_1
@@ -1138,7 +1167,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,25'30'30'30'30  'acerto      alterado
-pwmout portc 2, 10,25'30'50'30'50
+pwmout portc 2, 10,24'30'50'30'50
 pause 500
 goto parado_w
 
@@ -1152,7 +1181,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10, 30
-pwmout portc 2, 10, 30
+pwmout portc 2, 10, 28
 pause 600
 goto parado_w
 
@@ -1160,7 +1189,7 @@ goto parado_w
 
 lado_esquerdo_rap_xx:
 low 7
-PULSOUT 7, 3   'Ultra Sons e escreve na w6 a distancia de trás
+PULSOUT 7, 3   'Ultra Sons e escreve na w6 a distancia de tr?s
 PULSIN 4, 1, w6
 if w6<221  then esq_frent_oblq_xxx2'frente_bola_afasta_x
 if w6>220  then lado_esquerdo_rap_xx3'_1
@@ -1187,7 +1216,7 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,25'30'50'30'50  'rodas trazeiras        alterado
+pwmout portc 1, 10,24'30'50'30'50  'rodas trazeiras        alterado
 pwmout portc 2, 10,25'30'50'30'50  'rodas da frente
 pause 500
 goto parado_w
