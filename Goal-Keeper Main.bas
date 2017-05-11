@@ -1,4 +1,3 @@
-#picaxe 40x1
 symbol flag=b25
 
 iniciar:
@@ -515,7 +514,7 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 11,19
+pwmout portc 1, 10,20
 pwmout portc 2, 10,20
 flag=1
 goto inicio
@@ -529,7 +528,7 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 11,19
+pwmout portc 1, 10,20
 pwmout portc 2, 10,20
 goto inicio
 
@@ -557,7 +556,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,20
-pwmout portc 2, 11,19
+pwmout portc 2, 10,20
 flag=2
 goto inicio
 
@@ -571,7 +570,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,20
-pwmout portc 2, 11,19
+pwmout portc 2, 10,20
 goto inicio
 
 
@@ -584,8 +583,8 @@ goto inicio
 lado_esquerdo_rap_h:
 let b2=0
 let b3=b3+1
-if b3>18 then lado_esq_rat_flag '16
-if b3<19 then lado_esq_rap_conta '17
+if b3>16 then lado_esq_rat_flag 
+if b3<17 then lado_esq_rap_conta 
 goto inicio
 
 lado_esq_rap_conta:
@@ -597,8 +596,8 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 11,28'35'50'30'50  'rodas trazeiras        velocidade  max35
-pwmout portc 2, 10,30'35'50'30'50  'rodas da frente
+pwmout portc 1, 10,35'50'30'50  'rodas trazeiras        velocidade  max35
+pwmout portc 2, 10,35'50'30'50  'rodas da frente
 goto inicio
 
 lado_esq_rat_flag:
@@ -611,8 +610,8 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 11,28'35'50'30'50  'rodas trazeiras        velocidade  max35
-pwmout portc 2, 10,30'35'50'30'50  'rodas da frente
+pwmout portc 1, 10,35'50'30'50  'rodas trazeiras        velocidade  max35
+pwmout portc 2, 10,35'50'30'50  'rodas da frente
 flag=1
 goto inicio
 
@@ -625,7 +624,7 @@ goto inicio
 lado_esquerdo_rap_le_h:
 let b2=0
 let b3=b3+1
-if b3>16 then lado_esq_rap_le_flag
+if b3>16 then lado_esq_rap_le_flag 
 if b3<17 then lado_esq_rap_le_conta 
 goto inicio
 
@@ -638,7 +637,7 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,25  'rodas trazeiras        velocidade  max35
+pwmout portc 1, 10,26  'rodas trazeiras        velocidade  max35
 pwmout portc 2, 10,26  'rodas da frente
 goto inicio
 
@@ -653,7 +652,7 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,25  'rodas trazeiras        velocidade  max35
+pwmout portc 1, 10,26  'rodas trazeiras        velocidade  max35
 pwmout portc 2, 10,26  'rodas da frente
 flag=1
 goto inicio
@@ -682,8 +681,8 @@ high 0
 low 1
 low 2
 high 3
-pwmout portc 1, 10,30'30'30'30'30 
-pwmout portc 2, 10,28'35'50'30'50
+pwmout portc 1, 10,30'30'30'30 
+pwmout portc 2, 10,35'50'30'50
 goto inicio
 
 lado_dir_rap_flag:
@@ -696,8 +695,8 @@ high 0
 low 1
 low 2
 high 3
-pwmout portc 1, 10,30'30'30'30'30 
-pwmout portc 2, 10,28'35'50'30'50
+pwmout portc 1, 10,30'30'30'30 
+pwmout portc 2, 10,35'50'30'50
 flag=2
 goto inicio
 
@@ -724,7 +723,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,26                 
-pwmout portc 2, 10,25
+pwmout portc 2, 10,26
 goto inicio
 
 lado_dir_rap_le_flag:
@@ -738,7 +737,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,26                 
-pwmout portc 2, 10,25
+pwmout portc 2, 10,26
 flag=2
 goto inicio
 '»»»»»»»»
@@ -1139,7 +1138,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10,25'30'30'30'30  'acerto      alterado
-pwmout portc 2, 10,24'30'50'30'50
+pwmout portc 2, 10,25'30'50'30'50
 pause 500
 goto parado_w
 
@@ -1153,7 +1152,7 @@ low 1
 low 2
 high 3
 pwmout portc 1, 10, 30
-pwmout portc 2, 10, 28
+pwmout portc 2, 10, 30
 pause 600
 goto parado_w
 
@@ -1188,7 +1187,7 @@ low 0
 high 1
 high 2
 low 3
-pwmout portc 1, 10,24'30'50'30'50  'rodas trazeiras        alterado
+pwmout portc 1, 10,25'30'50'30'50  'rodas trazeiras        alterado
 pwmout portc 2, 10,25'30'50'30'50  'rodas da frente
 pause 500
 goto parado_w

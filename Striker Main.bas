@@ -32,26 +32,11 @@ low 4
 pause 70
 goto iniciar
 
-'»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+'?????????????????????????????????????????????????????????????
 '##################################################################
-'»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
-      
-inicio:
-low 7
-PULSOUT 7, 1   'pino B7 Ultra Sons e escreve na w1
-PULSIN 4, 1, w1
-if w1<22 then frente_baliza
-if w1>21 and w1<29 then frente_bola_inicio_1a              'alteração
-if w1>28 then frente_bola_inicio
-goto inicio
+'????????????????????????????????????????????????????????????
 
-
-frente_bola_inicio:
-if pin3=1 then linha
-if pin3=0 then frente_bola_inicio_1
-goto inicio
-
-frente_bola_inicio_1a:                                       'alteração
+frente_bola_inicio_1a:                                       'altera??o
 if pin7=0 and pin6=0 and pin5=0 then parado_1'parado
 if pin7=0 and pin6=1 and pin5=0 then frente
 if pin7=1 and pin6=0 and pin5=0 then esquerdo_perto
@@ -61,7 +46,7 @@ if pin7=0 and pin6=1 and pin5=1 then direita_r
 goto inicio
 
 
-frente_bola_inicio_1:
+inicio:;frente_bola_inicio_1:
 if pin7=0 and pin6=0 and pin5=0 then parado_1'parado
 if pin7=0 and pin6=1 and pin5=0 then frente
 if pin7=1 and pin6=0 and pin5=0 then esquerda
@@ -74,6 +59,11 @@ goto inicio
 '#######################################################
 
 frente:
+low 7
+PULSOUT 7, 1   'pino B7 Ultra Sons e escreve na w1
+PULSIN 4, 1, w1
+if w1<22 then frente_baliza
+if w1>21 and w1<29 then frente_bola_inicio_1a              'altera??o
 if w1>28 and w1<220 then posicionase   '200  120    '????????????????????????????????????????????????????
 'if w1>199 then frente_bola1111             '119
 if w1>219 and w1< 250 then frente_bola_xx_lento 'if w1>219 and w1< 260 then frente_bola_xx_lento 
@@ -128,7 +118,7 @@ high 1
 low 2
 high 3
 low 4' desliga o dribulador
-pwmout portc 1, 10,32'30'28'26'40'motores do lado direito   xxxxxxxxxxxxxxx   AFINAÇÃO VELOCIDADE
+pwmout portc 1, 10,32'30'28'26'40'motores do lado direito   xxxxxxxxxxxxxxx   AFINA??O VELOCIDADE
 pwmout portc 2, 10,32'30'32'29'50'motores do lado esquerdo           (para velocidade maior tem de ser
 goto inicio                                                    ' alterado velocidade no contorna
                                                               'esquerda_obliq_r:direita_obliq_r: 
@@ -141,18 +131,18 @@ low 0
 high 1
 low 2
 high 3
-low 4' desliga o dribulador
-pwmout portc 1, 10,24'26'40motores do lado direito
-pwmout portc 2, 10,24'26'50'motores do lado esquerdo        
+high 4' desliga o dribulador
+pwmout portc 1, 10,20'26'40motores do lado direito
+pwmout portc 2, 10,20								'26'50'motores do lado esquerdo        
 goto inicio
 
 
-esquerdo_perto:                                 'alteração
+esquerdo_perto:                                 'altera??o
 if pin3=1 then linha
 if pin3=0 then esquerda_obliq_frente_perto'esquerdo_perto_1
 goto inicio
 
-direito_perto:                                  'alteração
+direito_perto:                                  'altera??o
 if pin3=1 then linha
 if pin3=0 then direita_obliq_frente_perto'direito_perto_1
 goto inicio
@@ -196,7 +186,7 @@ low 1
 low 2
 high 3
 low 4 ' dribulador
-pwmout portc 1, 10, 26'30    'motores do lado direito             alteração
+pwmout portc 1, 10, 26'30    'motores do lado direito             altera??o
 pwmout portc 2, 10, 26'30    'motores do lado esquerdo 
 goto inicio
 
@@ -211,7 +201,7 @@ high 1
 low 2
 low 3
 low 4 ' dribulador
-pwmout portc 1, 10, 26'30    'motores do lado direito                alteração
+pwmout portc 1, 10, 26'30    'motores do lado direito                altera??o
 pwmout portc 2, 10, 26'30     'motores do lado esquerdo 
 goto inicio
 
@@ -362,7 +352,7 @@ desv_interrg_lad_dir:
 low 6
 PULSOUT 6, 5                          'lado esquerdo
 PULSIN 1, 1, w4
-if w4>550 then desviar_lado_esquerdo_1111'desviar_lado_direito_1111    'alteração 
+if w4>550 then desviar_lado_esquerdo_1111'desviar_lado_direito_1111    'altera??o 
 if w4<551 then desviar_lado_direito_1111'desviar_lado_esquerdo_1111  
 goto inicio
 
@@ -466,7 +456,7 @@ low 1
 low 2
 high 3
 low 4 ' dribulador
-pwmout portc 1, 10, 35'30    'motores do lado direito             alteração
+pwmout portc 1, 10, 35'30    'motores do lado direito             altera??o
 pwmout portc 2, 10, 20'30    'motores do lado esquerdo 
 return
 
@@ -485,7 +475,7 @@ high 1
 low 2
 low 3
 low 4 ' dribulador
-pwmout portc 1, 10, 18'30    'motores do lado direito                alteração
+pwmout portc 1, 10, 18'30    'motores do lado direito                altera??o
 pwmout portc 2, 10, 35'30     'motores do lado esquerdo 
 return
 '###################################
@@ -636,7 +626,7 @@ pwmout portc 1, 10, 18 'motores do lado direito
 pwmout portc 2, 10, 37 'motores do lado esquerdo     
 goto frente_frente_bola_fr'inicio
 
-'««««««««««««««««««««««««
+'????????????????????????
 
 direita_obliq:
 i2cslave $C0,i2cfast,i2cbyte	
@@ -796,7 +786,7 @@ goto linha_h
 linha_h:
 i2cslave $C0,i2cfast,i2cbyte	
 readi2c 0,(b1)		
-readi2c 1,(b5)		' escreve a posição na B5 (0-255 for full circle) ATACA A "0"				
+readi2c 1,(b5)		' escreve a posi??o na B5 (0-255 for full circle) ATACA A "0"				
 if b5<11 then  parado_linha_xx
 if b5>10 and b5<21 then roda_esquerda_linha_lento'
 if b5>20 and b5<64 then roda_esquerda_linha'      
@@ -917,7 +907,7 @@ goto inicio
 recuar300a:
 i2cslave $C0,i2cfast,i2cbyte	
 readi2c 0,(b1)		
-readi2c 1,(b5)		' escreve a posição na B5 (0-255 for full circle) ATACA A "0"				
+readi2c 1,(b5)		' escreve a posi??o na B5 (0-255 for full circle) ATACA A "0"				
 if b5<6 then  recuar300
 if b5>5 and b5<128 then rodar_esqerda_k
 if b5>127and b5<250 then rodar_direita_k                                                                                                                                                                                                                                                          
@@ -1051,7 +1041,7 @@ pwmout portc 1,10,22
 pwmout portc 2,10,26
 goto linha_xx_virado_1
 
-'»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+'???????????????????????????????
 
 
 recua_oblq_direita_x:
